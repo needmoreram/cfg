@@ -99,6 +99,7 @@
       autocmd!
       autocmd VimEnter * highlight clear SignColumn
       autocmd FileType make setlocal noexpandtab
+      autocmd FileType c,cpp,py,java call rainbow#load()
 "     autocmd BufEnter Makefile setlocal noexpandtab
   augroup END
 
