@@ -1,0 +1,14 @@
+[user]
+	name = Ram Subramanian
+	email = needmoarram@gmail.com
+[color]
+    ui = true
+    status = auto
+[diff]
+    tool = vimdiff
+    algorithm = patience
+[core]
+    editor = /usr/bin/vim
+[alias]
+    s = status --short
+    d = diff --cached HEAD
