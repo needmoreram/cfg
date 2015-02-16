@@ -4,6 +4,10 @@
 
   set nocompatible
 
+  if $SHELL =~ '/fish'
+      set shell=/bin/bash   " Need POSIX compliant shell for Vundle >:(
+  endif
+
 " Plugins
 " Vundle
   filetype off
@@ -18,7 +22,7 @@
   Plugin 'oblitum/rainbow'
   Plugin 'majutsushi/tagbar'
 " Plugin 'sjl/gundo.vim'
-" Plugin 'tpope/vim-fugitive'
+  Plugin 'tpope/vim-fugitive'
 
   call vundle#end()
   filetype plugin indent on
