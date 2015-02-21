@@ -28,9 +28,9 @@
   filetype plugin indent on
 
 " Gruvbox
-  if !has("gui_running")
-    let g:gruvbox_italic=0
-  endif
+" if !has("gui_running")
+"   let g:gruvbox_italic=0
+" endif
 
 " Airline
   let g:airline_powerline_fonts = 1
