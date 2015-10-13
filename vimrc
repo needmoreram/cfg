@@ -22,7 +22,8 @@
   Plugin 'oblitum/rainbow'
   Plugin 'majutsushi/tagbar'
 " Plugin 'sjl/gundo.vim'
-  Plugin 'tpope/vim-fugitive'
+" Plugin 'tpope/vim-fugitive'
+  Plugin 'scrooloose/nerdcommenter'
 
   call vundle#end()
   filetype plugin indent on
@@ -49,13 +50,13 @@
 
   set background=dark   " set background type
   colorscheme gruvbox   " choose colorscheme
- 
+
   syntax on             " enable syntax processing
 " set number            " show line numbers
 " set ruler             " show ruler
   set autoindent        " copy indentation from previous line
 " set smartindent       " automatically add one level of idx when necessary
-  set expandtab	        " tabs are spaces
+  set expandtab         " tabs are spaces
   set tabstop=4         " number of columns in a tab
   set softtabstop=4     " number of spaces in a tab
   set shiftwidth=4      " number of columns to shift by using < or >
@@ -75,13 +76,21 @@
 
   set hlsearch          " highlight search matches
   set incsearch         " search as characters are entered
-  
+
   set splitbelow        " split below for hsplit
   set splitright        " split right for vsplit
 
   set tags=./tags;/     " search for tags in current dir, span outward
- 
+
   set backspace=indent,eol,start
+
+  set cryptmethod=blowfish
+
+" Matches and Highlights
+
+  highlight ExtraWhitespace ctermbg=red guibg=red   " All matches for group ExtraWhitespace have red bg
+  match ExtraWhitespace /\s\+\%#\@<!$/              " Lines ending with space(s), not when editing
+" match ExtraWhitespace /\s\+$\| \+\ze\t/           " Lines ending with space(s), space(s) before tab(s)
 
 " Bindings
 
@@ -90,8 +99,9 @@
   command Wq wq         " Wq = wq
   command WW w !sudo tee % > /dev/null
 
-  nnoremap gV `[v`]     " visually select last batch of insert
-  noremap <C-d> :q<CR>  " use ctrl_d to quit
+  nnoremap gV `[v`]                  " visually select last batch of insert
+  noremap <C-d> :q<CR>               " use ctrl_d to quit
+  noremap <C-n> :set nonumber!<CR>   " toggle line numbers
 
   noremap <C-J> <C-W><C-J>
   noremap <C-K> <C-W><C-K>
@@ -102,9 +112,9 @@
   augroup configgroup
       autocmd!
       autocmd VimEnter * highlight clear SignColumn
-      autocmd FileType make setlocal noexpandtab
+      autocmd FileType make,tex,cls setlocal noexpandtab
       autocmd FileType c,cpp,py,java call rainbow#load()
-"     autocmd BufEnter Makefile setlocal noexpandtab
+      autocmd BufEnter Makefile setlocal noexpandtab
   augroup END
 
   function! ToggleNumber()
