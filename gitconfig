@@ -10,10 +10,11 @@
 [core]
     editor = /usr/bin/vim
 [alias]
-    s = status --short
-    dc = diff --cached
-    l = log --pretty=format:'%C(yellow)%h%Creset - %Cblue%an%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
-    ll = log --pretty=format:'%C(yellow)%h%Creset - %Cblue%an%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative --all     # Optionally, give --since
+    st = status --short
     co = checkout
+    ci = commit
+    br = branch
+    dc = diff --cached
+    ll = log --pretty=format:'%C(yellow)%h%Creset - %Cblue%an%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative --all     # Optionally, give --since
 [push]
 	default = simple
