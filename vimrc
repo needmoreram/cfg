@@ -34,13 +34,13 @@
 " endif
 
 " Airline
-"  let g:airline_powerline_fonts = 1
-"  let g:airline_theme = "simple"
-"  let g:airline#extensions#tagbar#enabled = 1
-"  let g:airline#extensions#tabline#enabled = 1
-"" let g:airline#extensions#tabline#show_buffers = 0
-"  let g:airline#extensions#tabline#buffer_min_count = 2
-"  let g:airline#extensions#tabline#buffer_min_count = 2
+  let g:airline_powerline_fonts = 1
+  let g:airline_theme = "simple"
+  let g:airline#extensions#tagbar#enabled = 1
+  let g:airline#extensions#tabline#enabled = 1
+" let g:airline#extensions#tabline#show_buffers = 0
+  let g:airline#extensions#tabline#buffer_min_count = 2
+  let g:airline#extensions#tabline#buffer_min_count = 2
 
 " Tagbar
   let g:tagbar_ctags_bin = "/usr/local/bin/ctags"
