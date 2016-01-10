@@ -18,7 +18,7 @@
   Plugin 'tomasr/molokai'
   Plugin 'sjl/badwolf'
   Plugin 'morhetz/gruvbox'
-  Plugin 'bling/vim-airline'
+" Plugin 'bling/vim-airline'
   Plugin 'oblitum/rainbow'
   Plugin 'majutsushi/tagbar'
 " Plugin 'sjl/gundo.vim'
@@ -34,13 +34,13 @@
 " endif
 
 " Airline
-  let g:airline_powerline_fonts = 1
-  let g:airline_theme = "simple"
-  let g:airline#extensions#tagbar#enabled = 1
-  let g:airline#extensions#tabline#enabled = 1
-" let g:airline#extensions#tabline#show_buffers = 0
-  let g:airline#extensions#tabline#buffer_min_count = 2
-  let g:airline#extensions#tabline#buffer_min_count = 2
+"  let g:airline_powerline_fonts = 1
+"  let g:airline_theme = "simple"
+"  let g:airline#extensions#tagbar#enabled = 1
+"  let g:airline#extensions#tabline#enabled = 1
+"" let g:airline#extensions#tabline#show_buffers = 0
+"  let g:airline#extensions#tabline#buffer_min_count = 2
+"  let g:airline#extensions#tabline#buffer_min_count = 2
 
 " Tagbar
   let g:tagbar_ctags_bin = "/usr/local/bin/ctags"
@@ -69,7 +69,6 @@
 " set lazyredraw        " redraw only when necessary
   set shortmess+=I      " hush startup message
   set scrolloff=5       " keep context while scrolling
-  set laststatus=2      " 
 " set modelines=1       " use modelines specified by file
   let mapleader=","     " leader is comma
   let g:mapleader = "," " leader is comma
@@ -85,6 +84,9 @@
   set backspace=indent,eol,start
 
   set cryptmethod=blowfish
+
+  set laststatus=2      " 
+  set statusline=%<%t\ %=%20.45{CurrentTag()}\ %14.(%l,%c%V%)
 
 " Matches and Highlights
 
@@ -124,4 +126,11 @@
       else
           set relativenumber
       endif
+  endfunc
+
+  function! CurrentTag()
+      if !exists(':Tagbar')
+          return ''
+      endif
+      return tagbar#currenttag('%s', '', '')
   endfunc
