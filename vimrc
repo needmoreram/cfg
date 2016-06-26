@@ -18,7 +18,7 @@
   Plugin 'tomasr/molokai'
   Plugin 'sjl/badwolf'
   Plugin 'morhetz/gruvbox'
-" Plugin 'bling/vim-airline'
+  Plugin 'bling/vim-airline'
   Plugin 'oblitum/rainbow'
   Plugin 'majutsushi/tagbar'
 " Plugin 'sjl/gundo.vim'
@@ -29,9 +29,9 @@
   filetype plugin indent on
 
 " Gruvbox
-" if !has("gui_running")
-"   let g:gruvbox_italic=0
-" endif
+  if !has("gui_running")
+    let g:gruvbox_italic=0
+  endif
 
 " Airline
   let g:airline_powerline_fonts = 1
@@ -86,7 +86,10 @@
   set cryptmethod=blowfish
 
   set laststatus=2      " 
-  set statusline=%<%t\ %=%20.45{CurrentTag()}\ %14.(%l,%c%V%)
+" set statusline=%<%t\ %=%20.45{CurrentTag()}\ %14.(%l,%c%V%)
+
+  set swapfile
+  set dir=~/.vim-swaps
 
 " Matches and Highlights
 
@@ -100,10 +103,18 @@
   command W w           " W = w
   command Wq wq         " Wq = wq
   command WW w !sudo tee % > /dev/null
+  command -nargs=1 Set execute "set" <q-args>   " Set = set command
 
-  nnoremap gV `[v`]                  " visually select last batch of insert
-  noremap <C-d> :q<CR>               " use ctrl_d to quit
-  noremap <C-n> :set nonumber!<CR>   " toggle line numbers
+  " toggle paste and go to insert mode
+  nnoremap I :set paste!<CR>i
+  " visually select last batch of insert
+  nnoremap gV `[v`]
+  " use ctrl_d to quit
+  noremap <C-d> :q<CR>
+  " toggle line numbers
+  noremap <C-n> :set nonumber!<CR>
+  " nothing
+  nnoremap Q <Nop>
 
   noremap <C-J> <C-W><C-J>
   noremap <C-K> <C-W><C-K>

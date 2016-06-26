@@ -12,8 +12,6 @@
 [alias]
     st = status --short
     co = checkout
-    ci = commit
-    br = branch
     dc = diff --cached
     ll = log --pretty=format:'%C(yellow)%h%Creset - %Cblue%an%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative --all     # Optionally, give --since
 [push]
