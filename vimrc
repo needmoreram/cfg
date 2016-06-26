@@ -19,6 +19,7 @@
   Plugin 'sjl/badwolf'
   Plugin 'morhetz/gruvbox'
   Plugin 'bling/vim-airline'
+  Plugin 'vim-airline/vim-airline-themes'
   Plugin 'oblitum/rainbow'
   Plugin 'majutsushi/tagbar'
 " Plugin 'sjl/gundo.vim'
@@ -89,7 +90,7 @@
 " set statusline=%<%t\ %=%20.45{CurrentTag()}\ %14.(%l,%c%V%)
 
   set swapfile
-  set dir=~/.vim-swaps
+  set dir=~/.cache/vim/swaps
 
 " Matches and Highlights
 
