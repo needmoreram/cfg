@@ -1,6 +1,6 @@
 [user]
-	name = Ram Subramanian
-	email = needmoarram@gmail.com
+    name = Ram Subramanian
+    email = needmoarram@gmail.com
 [color]
     ui = true
     status = auto
@@ -11,8 +11,11 @@
     editor = /usr/bin/vim
 [alias]
     st = status --short
-    co = checkout
     dc = diff --cached
     ll = log --pretty=format:'%C(yellow)%h%Creset - %Cblue%an%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative --all     # Optionally, give --since
+    llg = log --pretty=format:'%C(yellow)%h%Creset - %Cblue%an%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative --all --graph
+    co = checkout
 [push]
-	default = simple
+    default = simple
+[branch]
+    autosetuprebase = always
