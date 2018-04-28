@@ -9,6 +9,8 @@
 
     Plug 'morhetz/gruvbox'
     Plug 'majutsushi/tagbar'
+"   Plug 'tpope/vim-fugitive'
+    Plug 'tpope/vim-sleuth'
 
   call plug#end()
 
@@ -18,12 +20,12 @@
   colorscheme gruvbox     " choose colorscheme
   syntax on               " enable syntax processing
 
-  set tabstop=4           " num spaces a tab counts for
-  set softtabstop=4       " num spaces when inserting tab
-  set shiftwidth=4        " num columns to shift by
-  set expandtab           " tabs are spaces
+" set tabstop=4           " num spaces a tab counts for
+" set softtabstop=4       " num spaces when inserting tab
+" set shiftwidth=4        " num columns to shift by
+" set expandtab           " tabs are spaces
 " set autoindent          " copy indentation from previous line
-  filetype indent on      " language specific indentation
+" filetype indent on      " language specific indentation
 
   set showcmd             " show last run command
   set wildmenu            " visual auto-complete for command menu
@@ -42,6 +44,11 @@
 
   noremap <C-d> :q<CR>    " remap ctrl-d to quit vim
   nnoremap Q <Nop>        " disable Q
+  nnoremap <C-]> g<C-]>             " jump to tag if there is only one match, otherwise show list of matches
+  nnoremap <C-\> :TagbarToggle<CR>  " shortcut to toggle tagbar plugin
+
+  " temporary stuff
+  set ignorecase
 
   command Q q
   command W w
@@ -55,4 +62,8 @@
     autocmd BufNewFile,BufRead Makefile.in* set filetype=make
     " don't expand tabs to spaces in makefiles
     autocmd FileType make setlocal noexpandtab
+    " set filetype for bitbake files (for proper syntax highlighting)
+    autocmd BufNewFile,BufRead *.bb* set filetype=bitbake
+    " remember last buffer position
+    au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
   augroup END
